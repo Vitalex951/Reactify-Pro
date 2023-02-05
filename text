@@ -1,0 +1,24 @@
+npm init -y
+
+2
+> npm install webpack webpack-cli --save-dev
+npm i -D webpack@5.69.1 webpack-cli@4.9.2         4.10.0
+npm i -D html-webpack-plugin@5.5.0
+npm i -D typescript@4.5.5 ts-loader@9.2.6
+npm install --save -dev typescript@4.5.5  ts-node@10.5.0  @types/node@17.0.21  @types/webpack@5.28.0
+
+3
+npm i -D webpack-dev-server@4.7.4 @types/webpack-dev-server@4.7.2
+
+4
+npm i react@17.0.2 react-dom@17.0.2
+npm i -D @types/react@17.0.39 @types/react-dom@17.0.11
+
+5
+npm install sass-loader sass webpack style-loader css-loader --save-dev
+npm i -D mini-css-extract-plugin@2.5.3
+
+7
+npm i -D @types/react-router-dom@6.2.1
+
+
