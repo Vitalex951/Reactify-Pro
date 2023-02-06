@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './MainPage.module.scss'
-import AboutPage from "../AboutPage/AboutPage";
+import AboutPage from "../../AboutPage/ui/AboutPage";
 
 const MainPage = () => {
   return (

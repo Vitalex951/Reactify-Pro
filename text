@@ -21,4 +21,10 @@ npm i -D mini-css-extract-plugin@2.5.3
 7
 npm i -D @types/react-router-dom@6.2.1
 
+13
+npm install @svgr/webpack@6.2.1 --save-dev
+npm install file-loader@6.2.0 --save-dev
+
+
+
 
