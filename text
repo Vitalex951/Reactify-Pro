@@ -25,6 +25,10 @@ npm i -D @types/react-router-dom@6.2.1
 npm install @svgr/webpack@6.2.1 --save-dev
 npm install file-loader@6.2.0 --save-dev
 
+15
+npm install i18next@21.6.11 react-i18next@11.15.5 --save
+npm install i18next-http-backend@1.3.2 i18next-browser-languagedetector@6.1.3 --save
+
 
 
 
