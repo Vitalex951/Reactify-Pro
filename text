@@ -44,3 +44,7 @@ npm init @eslint/config
 eslint "**/*.{ts,tsx}"
 eslint "**/*.{ts,tsx}" --fix
 
+
+19
+npm i -D stylelint@14.5.3 stylelint-config-standard-scss@3.0.0
+npm i -D eslint-plugin-i18next@5.1.2

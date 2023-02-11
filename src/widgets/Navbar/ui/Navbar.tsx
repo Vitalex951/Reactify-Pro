@@ -17,6 +17,7 @@ export const Navbar = ({ className }: NavbarProps) => (
             >
                 Главная
             </AppLink>
+            dsfsdf
             <AppLink
                 className={s.mainLink}
                 theme={AppLinkTheme.SECONDARY}
