@@ -37,5 +37,10 @@ npm install --save-dev babel-loader@8.2.3  @babel/core
 ---- npm i -D babel-loader@8.2.3 @babel/core@7.17.5 babel-plugin-i18next-extract@0.8.3
 ----npm i -D @babel/preset-env@7.16.11
 
+18
+npm install --save-dev eslint@8.10.0
+npm init @eslint/config
 
+eslint "**/*.{ts,tsx}"
+eslint "**/*.{ts,tsx}" --fix
 
