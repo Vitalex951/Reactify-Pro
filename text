@@ -45,6 +45,19 @@ eslint "**/*.{ts,tsx}"
 eslint "**/*.{ts,tsx}" --fix
 
 
+После установки и настройки eslint вылазит следующая ошибка., при этом если удалит eslint все сново работает
+[webpack-cli] Failed to load 'D:\practice\production_project\webpack.config.ts' config
+[webpack-cli] Error: Debug Failure. False expression: Non-string value passed to `ts.resolveTypeReferenceDirective`, likely by a wrapping package working with an outdated `resolveTypeReferenceDirectives` signature. This is probably not
+a problem in TS itself.
+У меня была версия 8.23.1, я в package.json переписал на 8.10.0, удалил node_modules, переустановил и норм стало
+Проблема в версии typescript, после установки eslint проверьте версию typescript, у меня она изменилась, пришлось откатить обратно и все заработало
+
+
 19
 npm i -D stylelint@14.5.3 stylelint-config-standard-scss@3.0.0
 npm i -D eslint-plugin-i18next@5.1.2
+
+20
+npm install --save-dev jest@27.5.1
+npm i --save-dev @types/jest@27.4.1
+npm install --save-dev @babel/preset-typescript@7.16.7
