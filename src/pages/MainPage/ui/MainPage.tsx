@@ -1,12 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import s from './MainPage.module.scss';
-import AboutPage from '../../AboutPage/ui/AboutPage';
+import { BugButton } from 'app/providers/ErrorBoundary';
 
 const MainPage = () => {
     const { t } = useTranslation('main');
     return (
         <div>
+            <BugButton />
             {t('Главная страница')}
         </div>
     );

@@ -1,10 +1,10 @@
 import React from 'react';
-import { classNames } from 'shared/lib/classnames/classnames';
+import { classNames } from 'shared/lib/classNames/classnames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import s from './Navbar.module.scss';
 
 interface NavbarProps {
-  className?: string
+    className?: string
 }
 
 export const Navbar = ({ className }: NavbarProps) => (
