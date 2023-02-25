@@ -1,8 +1,6 @@
 import webpack from 'webpack';
-import HTMLWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import path from 'path';
 import { BuildOptions } from './types/config';
+import { buildCssLoader } from './loaders/buildCssLoader';
 
 export function buildLoader({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     const svgLoader = {
@@ -24,7 +22,7 @@ export function buildLoader({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                             locales: ['en', 'ru'],
                             keyAsDefaultValue: false,
                             saveMissing: true,
-                            outputPath: 'public/locales/{{locale}}/{{ns}}.json',
+                            outputPath: 'public/locales/{{locale}}/{{ns}}navbar.json',
                         },
                     ],
                 ],
@@ -41,25 +39,7 @@ export function buildLoader({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         ],
     };
 
-    const cssLoader = {
-        test: /\.s[ac]ss$/i,
-        use: [
-            isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-            {
-                loader: 'css-loader',
-                options: {
-                    modules: {
-                        auto: (resPath: string) => Boolean(resPath.includes('.module')),
-                        localIdentName: isDev
-                            ? '[path][name]__[local]--[hash:base64:5]'
-                            : '[hash:base64:8]',
-                        exportLocalsConvention: 'camelCase',
-                    },
-                },
-            },
-            'sass-loader',
-        ],
-    };
+    const cssLoader = buildCssLoader(isDev);
 
     const typescriptLoader = {
         test: /\.tsx?$/,

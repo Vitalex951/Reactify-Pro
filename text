@@ -72,3 +72,6 @@ npm i --save-dev @testing-library/jest-dom@5.16.2
 npm install -D @babel/preset-react@7.16.7
 npm install --save-dev identity-obj-proxy@3.0.0
 npm i -D regenerator-runtime@0.13.9
+
+25
+npx sb init --builder webpack5
