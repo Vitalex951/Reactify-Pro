@@ -20,6 +20,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                     to="/"
                 >
                     {t('navbar:главная')}
+
                 </AppLink>
                 <AppLink
                     className={s.mainLink}
