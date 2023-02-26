@@ -75,3 +75,8 @@ npm i -D regenerator-runtime@0.13.9
 
 25
 npx sb init --builder webpack5
+
+26
+npm i -D loki
+npx loki init --config ./config/storybook
+npx loki test - запуск локи
