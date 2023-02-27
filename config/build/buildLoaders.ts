@@ -22,7 +22,7 @@ export function buildLoader({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                             locales: ['en', 'ru'],
                             keyAsDefaultValue: false,
                             saveMissing: true,
-                            outputPath: 'public/locales/{{locale}}/{{ns}}navbar.json',
+                            outputPath: 'public/locales/{{locale}}/{{ns}}.json',
                         },
                     ],
                 ],

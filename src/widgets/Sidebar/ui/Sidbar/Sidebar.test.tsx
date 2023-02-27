@@ -2,7 +2,7 @@ import { fireEvent, screen } from '@testing-library/react';
 import { Sidebar } from 'widgets/Sidebar/ui/Sidbar/Sidebar';
 import {
     renderWithTranslation,
-} from 'shared/lib/tests/renderWithTranslation/renderWithTranslation';
+} from 'shared/config/tests/renderWithTranslation/renderWithTranslation';
 
 describe('Sidebar', () => {
     test('with only first param', () => {
