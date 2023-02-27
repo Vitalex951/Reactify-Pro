@@ -79,4 +79,14 @@ npx sb init --builder webpack5
 26
 npm i -D loki
 npx loki init --config ./config/storybook
+
 npx loki test - запуск локи
+
+интеграция для тестов с CI
+запускаем сборку сторибука
+1-
+npm run storybook:build
+добавить storybook-static в ignore
+
+если падают скриншотные тесты, то поменять runs-on: windows-2019 в yml файле
+
