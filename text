@@ -90,3 +90,8 @@ npm run storybook:build
 
 если падают скриншотные тесты, то поменять runs-on: windows-2019 в yml файле
 
+
+28
+npm i -D reg-cli
+node scripts/generate-visual-json-report.js
+reg-cli --from .loki/report.json --report .loki/report.html
