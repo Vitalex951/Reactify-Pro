@@ -95,3 +95,11 @@ npm run storybook:build
 npm i -D reg-cli
 node scripts/generate-visual-json-report.js
 reg-cli --from .loki/report.json --report .loki/report.html
+
+
+29
+npm install eslint-plugin-react-hooks --save-dev
+
+<ReturnType<typeof setTimeout>> - возвращает тип, той или иной функции
+
+
