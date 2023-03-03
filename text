@@ -102,4 +102,8 @@ npm install eslint-plugin-react-hooks --save-dev
 
 <ReturnType<typeof setTimeout>> - возвращает тип, той или иной функции
 
+30
+npm i @reduxjs/toolkit@1.8.0 react-redux@7.2.6
+
+
 
