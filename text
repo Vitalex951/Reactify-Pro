@@ -105,5 +105,6 @@ npm install eslint-plugin-react-hooks --save-dev
 30
 npm i @reduxjs/toolkit@1.8.0 react-redux@7.2.6
 
-
-
+32
+npm install -g json-server
+json-server --watch ./json-server/db.json --port 8000
