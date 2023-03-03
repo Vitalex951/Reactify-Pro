@@ -3,6 +3,7 @@ import React, {
     ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
+import { useTheme } from 'app/providers/ThemeProvider';
 import s from './Modal.module.scss';
 
 interface ModalProps {
@@ -21,6 +22,8 @@ export const Modal = (props: ModalProps) => {
 
     const [isClosing, setIsClosing] = useState(false);
     const timeRef = useRef<ReturnType<typeof setTimeout>>();
+
+    const { theme } = useTheme();
 
     const mods: Record<string, boolean> = {
         [s.opened]: isOpen,
@@ -59,7 +62,7 @@ export const Modal = (props: ModalProps) => {
 
     return (
         <Portal>
-            <div className={classNames(s.Modal, mods, [className])}>
+            <div className={classNames(s.Modal, mods, [className, theme, 'app_modal'])}>
                 <div
                     className={s.overlay}
                     onClick={closeHandler}
