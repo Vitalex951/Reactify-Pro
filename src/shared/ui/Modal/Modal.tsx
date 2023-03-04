@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classnames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import React, {
-    ReactNode, useCallback, useEffect, useRef, useState,
+    ReactNode, useCallback, useEffect, useLayoutEffect, useRef, useState,
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
@@ -11,34 +11,55 @@ interface ModalProps {
     children?: ReactNode
     isOpen?: boolean
     onClose?: () => void
+    lazy?: boolean
 }
 
 const ANIMATION_DELAY = 300;
 
 export const Modal = (props: ModalProps) => {
     const {
-        className, children, onClose, isOpen,
+        className,
+        children,
+        onClose,
+        isOpen,
+        lazy,
     } = props;
 
     const [isClosing, setIsClosing] = useState(false);
-    const timeRef = useRef<ReturnType<typeof setTimeout>>();
+    const [isMounted, setIsMounted] = useState(false);
+    const [isOpening, setIsOpening] = useState(false);
+    const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
     const { theme } = useTheme();
 
     const mods: Record<string, boolean> = {
-        [s.opened]: isOpen,
         [s.isClosing]: isClosing,
+        [s.opened]: isOpening,
     };
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+        // Убираем модалку из дома
+        return () => {
+            setIsMounted(false);
+        };
+    }, [isOpen]);
 
     const closeHandler = useCallback(() => {
         if (onClose) {
             setIsClosing(true);
-            timeRef.current = setTimeout(() => {
+            timerRef.current = setTimeout(() => {
                 onClose();
                 setIsClosing(false);
             }, ANIMATION_DELAY);
         }
     }, [onClose]);
+
+    const onContentClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
+    };
 
     const onKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {
@@ -48,17 +69,21 @@ export const Modal = (props: ModalProps) => {
 
     useEffect(() => {
         if (isOpen) {
+            timerRef.current = setTimeout(() => {
+                setIsOpening(true);
+            }, 0);
             window.addEventListener('keydown', onKeyDown);
         }
         return () => {
-            clearTimeout(timeRef.current);
+            setIsOpening(false);
+            clearTimeout(timerRef.current);
             window.removeEventListener('keydown', onKeyDown);
         };
     }, [isOpen, onKeyDown]);
 
-    const onContentClick = (e: React.MouseEvent) => {
-        e.stopPropagation();
-    };
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal>
