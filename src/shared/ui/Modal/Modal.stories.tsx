@@ -3,7 +3,6 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Modal } from 'shared/ui/Modal/Modal';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { OutlineDark } from 'shared/ui/Button/Button.stories';
 
 export default {
     title: 'shared/Modal',

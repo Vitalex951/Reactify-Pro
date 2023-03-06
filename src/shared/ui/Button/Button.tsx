@@ -19,7 +19,7 @@ export enum ButtonSize {
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string
     theme?: ButtonTheme
-    square?: boolean;
+    square?: boolean
     size?: ButtonSize
 }
 
@@ -29,18 +29,21 @@ export const Button: FC<ButtonProps> = (props) => {
         children,
         theme,
         square,
+        disabled,
         size = ButtonSize.M,
         ...otherProps
     } = props;
 
     const mods: Record<string, boolean> = {
         [s.square]: square,
+        [s.disabled]: disabled,
     };
 
     return (
         <button
             type="button"
             className={classNames(s.Button, mods, [className, s[theme], s[size]])}
+            disabled={disabled}
             {...otherProps}
         >
             {children}
