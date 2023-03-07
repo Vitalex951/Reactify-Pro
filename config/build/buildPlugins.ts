@@ -23,14 +23,22 @@ export function buildPlugins({
         }),
 
     ];
+
+    plugins.push(
+        new BundleAnalyzerPlugin({
+            analyzerMode: analyze ? 'server' : 'disabled',
+        }),
+    );
+    // размер бандла при сборке
+    // plugins.push(
+    //     new BundleAnalyzerPlugin({
+    //         openAnalyzer: false,
+    //     }),
+    // );
+
     if (isDev) {
         plugins.push(
             new webpack.HotModuleReplacementPlugin(),
-        );
-        plugins.push(
-            new BundleAnalyzerPlugin({
-                analyzerMode: analyze ? 'server' : 'disabled',
-            }),
         );
     }
     return plugins;
