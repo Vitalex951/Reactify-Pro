@@ -25,7 +25,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     useEffect(() => {
         Object.entries(reducers).forEach(([name, reducer]: ReducerListEntry) => {
             store.reducerManager.add(name, reducer);
-            console.log(name);
+
             // проверяем в redux dev tools, срабатывает ли action
             dispatch({ type: `init ${name} reducer` });
         });

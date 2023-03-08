@@ -5,12 +5,11 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { LoginFormAsync } from '../LoginForm/LoginForm.async';
 
 interface LoginModalProps {
-    className?: string
     isOpen: boolean
     onClose: () => void
 }
 
-export const LoginModal = ({ className, onClose, isOpen }: LoginModalProps) => {
+export const LoginModal = ({ onClose, isOpen }: LoginModalProps) => {
     const { t } = useTranslation('');
     return (
         <Modal
