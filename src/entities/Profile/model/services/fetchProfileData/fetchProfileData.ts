@@ -16,10 +16,6 @@ export const loginByUserName = createAsyncThunk<User, LoginByUserNameProps, Thun
             const response = await extra.api.post(
                 '/login',
 
-                // {
-                //     userName, password,
-                // },
-
                 authData,
             );
 

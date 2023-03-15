@@ -9,14 +9,14 @@ import { ErrorBoundary } from 'app/providers/ErrorBoundary';
 import { StoreProviders } from 'app/providers/StoreProvider';
 
 render(
-    <StoreProviders>
-        <BrowserRouter>
+    <BrowserRouter>
+        <StoreProviders>
             <ThemeProvider>
                 <ErrorBoundary>
                     <App />
                 </ErrorBoundary>
             </ThemeProvider>
-        </BrowserRouter>
-    </StoreProviders>,
+        </StoreProviders>
+    </BrowserRouter>,
     document.getElementById('root'),
 );

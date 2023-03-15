@@ -1,5 +1,5 @@
 import { ProfileSchema, Profile } from './model/types/profile';
-import { profileActions, profileReducer } from './model/selector/profileSLice';
+import { profileActions, profileReducer } from './model/slice/profileSLice';
 
 export {
     Profile,
