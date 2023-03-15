@@ -17,7 +17,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
     //     [ + ] config.resolve.modules = [ paths.src, "node_modules" ]s
     // Спасибо ребятам из нашей группы
     // config.resolve.modules.push(paths.src);
-    config.resolve.modules = [paths.src, 'node_modules'];
+    // config.resolve.modules = [paths.src, 'node_modules'];
+    config.resolve!.modules!.unshift(paths.src);
     config.resolve.extensions.push('.ts', '.tsx');
 
     // config.resolve.modules = [

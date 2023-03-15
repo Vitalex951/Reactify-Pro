@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Modal } from 'shared/ui/Modal/Modal';
 import { Suspense } from 'react';
 import { Loader } from 'shared/ui/Loader/Loader';
@@ -10,7 +9,6 @@ interface LoginModalProps {
 }
 
 export const LoginModal = ({ onClose, isOpen }: LoginModalProps) => {
-    const { t } = useTranslation('');
     return (
         <Modal
             isOpen={isOpen}
@@ -18,7 +16,7 @@ export const LoginModal = ({ onClose, isOpen }: LoginModalProps) => {
             lazy
         >
             <Suspense fallback={<Loader />}>
-                <LoginFormAsync />
+                <LoginFormAsync onSuccess={onClose} />
             </Suspense>
         </Modal>
 
