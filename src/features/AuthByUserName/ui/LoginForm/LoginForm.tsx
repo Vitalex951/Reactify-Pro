@@ -10,12 +10,14 @@ import {
     ReducerList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import {
+    loginByUserName,
+} from 'features/AuthByUserName/model/service/loginByUserName/loginByUserName';
 import { getLoginUserName } from '../../model/selectors/getLoginUserName/getLoginUserName';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
-import { loginByUserName } from '../../model/service/loginByUserName/loginByUserName';
 import s from './LoginForm.module.scss';
 
 export interface LoginFormProps {

@@ -1,32 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { User, userActions } from 'entities/User';
-import { USER_LOCALSTORAGE_KEY } from 'shared/ui/const/localStorage';
-import { ThunkConfig, ThunkExtraArg } from 'app/providers/StoreProvider';
+import { ThunkConfig } from 'app/providers/StoreProvider';
+import { Profile } from '../../types/Profile';
 
-interface LoginByUserNameProps {
-    userName: string
-    password: string
-}
-
-export const loginByUserName = createAsyncThunk<User, LoginByUserNameProps, ThunkConfig<string>>(
-    'login/loginByUserName',
-    async (/* { userName, password } */ authData, thunkAPI) => {
-        const { extra, dispatch, rejectWithValue } = thunkAPI;
+export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
+    'profile/fetchProfileData',
+    async (_, thunkAPI) => {
+        const { extra, rejectWithValue } = thunkAPI;
         try {
-            const response = await extra.api.post(
-                '/login',
-
-                authData,
-            );
-
-            if (!response.data) {
-                console.log('err');
-                throw new Error();
-            }
-
-            localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
-            dispatch(userActions.setAuthData(response.data));
-            extra.navigate('/profile');
+            const response = await extra.api.get<Profile>('/profile');
             return response.data;
         } catch (e) {
             return rejectWithValue('error');

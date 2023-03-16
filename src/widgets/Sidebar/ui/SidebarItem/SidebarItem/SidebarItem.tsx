@@ -7,12 +7,12 @@ import { SidebarItemType } from '../../../model/items';
 import s from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
-    item?: SidebarItemType
+    item: SidebarItemType
     collapsed: boolean
 }
 
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
-    const { t } = useTranslation('');
+    const { t } = useTranslation('navbar');
     return (
         <AppLink
             theme={AppLinkTheme.SECONDARY}

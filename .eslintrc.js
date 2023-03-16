@@ -39,6 +39,7 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/no-autofocus': 'off',
         'react/self-closing-comp': 'off',
+        'no-undef': 'off',
         'i18next/no-literal-string': ['error', {
             markupOnly: true,
             ignoreAttribute: ['data-testid', 'to'],
