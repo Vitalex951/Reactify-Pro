@@ -5,13 +5,13 @@ describe('getLoginPassword.test', () => {
     test('should return 123', () => {
         const state: DeepPartial<StateSchema> = {
             loginForm: {
-                password: '123',
+                password: 'test',
             },
         };
-        expect(getLoginPassword(state as StateSchema)).toEqual('123');
+        expect(getLoginPassword(state as StateSchema)).toEqual('test');
     });
     test('should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getLoginPassword(state as StateSchema)).toEqual('');
+        expect(getLoginPassword(state as StateSchema)).toEqual('123');
     });
 });

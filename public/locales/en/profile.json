@@ -1,6 +1,24 @@
 {
+  "error": "An error occurred while loading the profile",
+  "errors": {
+    "age": "Incorrect age",
+    "country": "Incorrect region",
+    "data": "Data not specified",
+    "server": "Server error on save",
+    "user": "First and last name are required"
+  },
+  "аватар": "Enter link to avatar",
+  "валюта": "Specify currency",
+  "валюта-select": "",
+  "возраст": "Your age",
+  "город": "Your city",
+  "город-select": "",
   "имя": "Your name",
+  "имя-пользователя": "Enter username",
+  "обновить": "Try refreshing the page",
+  "отменить": "Cancel",
   "профиль": "Profile",
   "редактировать": "Edit",
+  "сохранить": "Save",
   "фамилия": "Surname"
 }

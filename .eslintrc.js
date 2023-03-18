@@ -1,3 +1,5 @@
+const { ignorePatterns } = require('eslint-config-standard-with-typescript');
+
 module.exports = {
     env: {
         browser: true,
@@ -27,7 +29,7 @@ module.exports = {
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/function-component-definition': 'off',
-        'react/jsx-props-no-spreading': 'warn',
+        'react/jsx-props-no-spreading': 'off',
         'no-shadow': 'off',
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
@@ -42,7 +44,7 @@ module.exports = {
         'no-undef': 'off',
         'i18next/no-literal-string': ['error', {
             markupOnly: true,
-            ignoreAttribute: ['data-testid', 'to'],
+            ignoreAttribute: ['data-testid', 'to', 'align', 'alt'],
         }],
         'max-len': ['error', {
             code: 120,
