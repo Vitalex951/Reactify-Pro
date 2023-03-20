@@ -1,5 +1,12 @@
 {
   "error": "",
+  "errors": {
+    "age": "",
+    "country": "",
+    "data": "",
+    "server": "",
+    "user": ""
+  },
   "profile": "",
   "аватар": "",
   "валюта": "",

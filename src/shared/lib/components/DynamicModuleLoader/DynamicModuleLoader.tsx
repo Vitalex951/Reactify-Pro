@@ -30,7 +30,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
 
         return () => {
             if (removeAfterUnmount) {
-                Object.entries(reducers).forEach(([name, reducer]) => {
+                Object.entries(reducers).forEach(([name]) => {
                     store.reducerManager.remove(name as StateSchemaKey);
                     // проверяем в redux dev tools, убирается ли action
                     dispatch({ type: `dis ${name} reducer` });
