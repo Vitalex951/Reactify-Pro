@@ -124,3 +124,7 @@ https://github.com/oblador/loki/issues/442#issuecomment-1460082773. И это р
 появились в npm с версии 8.3 (на 14 ноде не заработало, на 16 заработало). Так же помним про известную багу
 https://github.com/npm/cli/issues/4232. И еще момент который пришлось поравить в файле config/storybook/webpack.config.ts.
 А именно заменить config.resolve!.modules!.push(paths.src) на config.resolve!.modules!.unshift(paths.src). И о чудо - оно работает))
+
+
+45
+npm i concurrently -D
