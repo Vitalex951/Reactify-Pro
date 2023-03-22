@@ -128,3 +128,6 @@ https://github.com/npm/cli/issues/4232. И еще момент который п
 
 45
 npm i concurrently -D
+
+46
+npm i concurrently -D
