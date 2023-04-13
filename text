@@ -131,3 +131,7 @@ npm i concurrently -D
 
 46
 npm i concurrently -D
+
+
+Чтобы использовать в css kebab-case, в cssLoader, в options -> modules можно добавить exportLocalsConvention:
+'camelCase'. Вдруг кому полезно будет

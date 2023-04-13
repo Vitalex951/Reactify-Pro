@@ -1,4 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
+import { ArticleDetails } from 'entities/Article';
+import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import s from './ArticleDetailsPage.module.scss';
 
@@ -7,11 +9,20 @@ interface ArticleDetailsPageProps {
 }
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
+    const { id } = useParams<{ id: string }>();
     const { t } = useTranslation('article');
+
+    if (!id) {
+        return (
+            <div className={classNames(s.ArticleDetailsPage, {}, [className])}>
+                {t('article:noArticle')}
+            </div>
+        );
+    }
+
     return (
-        // eslint-disable-next-line i18next/no-literal-string
         <div className={classNames(s.ArticleDetailsPage, {}, [className])}>
-            ArticleDetailsPage
+            <ArticleDetails id={id} />
         </div>
     );
 };

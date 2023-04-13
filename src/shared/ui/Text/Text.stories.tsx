@@ -55,3 +55,17 @@ Error.args = {
     text: 'Text text text',
     theme: TextTheme.ERROR,
 };
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+    title: 'Title',
+    text: 'Text text text',
+    size: 'L',
+};
+
+export const SizeM = Template.bind({});
+SizeM.args = {
+    title: 'Title',
+    text: 'Text text text',
+    size: 'M',
+};
