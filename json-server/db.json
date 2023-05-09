@@ -109,13 +109,15 @@
       "id": "1",
       "userName": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://img.money.com/2023/02/Explainer-Hire-Hacker.jpg"
     },
     {
       "id": "2",
       "userName": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROsiPYobfPlxF5jbGRR3dv6GhdzWJAwaT2XFGxIH7CmSH3-muBAsyxVwZhEHgo_9kZedw&usqp=CAU"
     }
   ],
   "profile": {

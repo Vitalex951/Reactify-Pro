@@ -1,6 +1,8 @@
 {
+  "comments": "Comments",
   "copy": "Copy",
   "loading": "Loading...",
   "noArticle": "Article not found",
+  "noComments": "No comments",
   "noPage": ""
 }
