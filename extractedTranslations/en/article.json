@@ -1,5 +1,13 @@
 {
+  "article": {
+    "buttonSend": "",
+    "inputAddComment": ""
+  },
+  "buttonSend": "",
+  "comments": "",
   "copy": "",
+  "inputAddComment": "",
   "loading": "",
-  "noArticle": ""
+  "noArticle": "",
+  "noComments": ""
 }
