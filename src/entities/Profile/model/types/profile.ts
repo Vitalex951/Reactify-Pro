@@ -10,7 +10,6 @@ export enum ValidateProfileError {
 }
 
 export interface Profile {
-    id?:string
     first?: string,
     lastname?: string
     age?: number
@@ -22,7 +21,7 @@ export interface Profile {
 }
 
 export interface ProfileSchema {
-       data?: Profile
+    data?: Profile
     form?: Profile
     isLoading: boolean
     error?: string
