@@ -8,12 +8,16 @@ import {
 
 describe('getArticleDetailsData.test', () => {
     test('should return data', () => {
-        const data:Article = {
+        const data: Article = {
             blocks: [],
             img: '123',
             createdAt: 'test',
             type: ['IT'],
             title: 'Test',
+            user: {
+                id: '1',
+                userName: 'Vitalex',
+            },
             views: 123,
             subtitle: '123',
             id: '1',

@@ -1,19 +1,32 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { ArticleDetails } from './ArticleDetails';
-import { StoreDecorator } from '../../../../shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ArticleList } from './ArticleList';
 import { Article, ArticleBlockType } from '../../model/types/article';
 
 export default {
-    title: 'entities/article/ArticleDetails',
-    component: ArticleDetails,
+    title: 'entities/article/ArticleList',
+    component: ArticleList,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ArticleDetails>;
+} as ComponentMeta<typeof ArticleList>;
 
-const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
+const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+
+export const isLoadingSmall = Template.bind({});
+isLoadingSmall.args = {
+    isLoading: true,
+    articles: [],
+    view: 'SMALL',
+};
+
+export const isLoadingBig = Template.bind({});
+isLoadingBig.args = {
+    isLoading: true,
+    articles: [],
+    view: 'BIG',
+};
 
 const article: Article = {
     id: '1',
@@ -91,26 +104,24 @@ const article: Article = {
     ],
 };
 
-export const Primary = Template.bind({});
-Primary.args = {};
-Primary.decorators = [StoreDecorator({
-    articleDetails: {
-        data: article,
-    },
-})];
+export const ListSmall = Template.bind({});
+ListSmall.args = {
+    articles: new Array(16)
+        .fill(0)
+        .map((el, index) => ({
+            ...article,
+            id: String(index),
+        })),
+    view: 'SMALL',
+};
 
-export const Loading = Template.bind({});
-Loading.args = {};
-Loading.decorators = [StoreDecorator({
-    articleDetails: {
-        isLoading: true,
-    },
-})];
-
-export const Error = Template.bind({});
-Error.args = {};
-Error.decorators = [StoreDecorator({
-    articleDetails: {
-        error: 'error',
-    },
-})];
+export const ListBig = Template.bind({});
+ListBig.args = {
+    articles: new Array(16)
+        .fill(0)
+        .map((el, index) => ({
+            ...article,
+            id: String(index),
+        })),
+    view: 'BIG',
+};

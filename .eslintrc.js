@@ -59,6 +59,7 @@ module.exports = {
         'no-trailing-spaces': 'off',
         'no-unused-vars': 'off',
         '@typescript-eslint/no-unused-vars': 'warn',
+        'react/no-array-index-key': 'off',
     },
     globals: {
         __IS_DEV__: true,

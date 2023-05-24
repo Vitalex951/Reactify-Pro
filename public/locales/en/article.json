@@ -1,4 +1,5 @@
 {
+  "back": "Back to list",
   "buttonSend": "Send",
   "comments": "Comments",
   "copy": "Copy",
@@ -6,5 +7,6 @@
   "loading": "Loading...",
   "noArticle": "Article not found",
   "noComments": "No comments",
-  "noPage": ""
+  "noPage": "",
+  "write": "Read more..."
 }

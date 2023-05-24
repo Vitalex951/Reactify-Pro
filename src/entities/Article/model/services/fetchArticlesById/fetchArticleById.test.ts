@@ -14,6 +14,10 @@ const data: Article = {
     ],
     title: 'TEST',
     id: '1',
+    user: {
+        id: '1',
+        userName: 'Vitalex',
+    },
     type: ['IT'],
     img: '1234',
     views: 1,
