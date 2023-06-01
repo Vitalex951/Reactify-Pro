@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BugButton } from 'app/providers/ErrorBoundary';
 import { Input } from 'shared/ui/Input/Input';
+import { Page } from 'shared/ui/Page/Page';
 
 const MainPage = () => {
     const { t } = useTranslation('main');
@@ -13,12 +14,12 @@ const MainPage = () => {
     };
 
     return (
-        <div>
+        <Page>
             <BugButton />
             {t('main:Главная страница')}
             {/* eslint-disable-next-line i18next/no-literal-string */}
             <Input autoFocus placeholder="Введите текст" onChange={onChange} value={value} />
-        </div>
+        </Page>
     );
 };
 

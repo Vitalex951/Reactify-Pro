@@ -20,12 +20,13 @@ server.use(async (req, res, next) => {
 // Эндпоинт для логина
 server.post('/login', (req, res) => {
     try {
-        const { userName, password } = req.body;
+        const { username, password } = req.body;
         const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
         const { users = [] } = db;
         const userFromBd = users.find(
             (user) => {
-                return user.userName === userName && user.password === password;
+                console.log('user,', user);
+                return user.userName === username && user.password === password;
             },
         );
 
@@ -52,6 +53,6 @@ server.use((req, res, next) => {
 server.use(router);
 
 // запуск сервера
-server.listen(8000, () => {
-    console.log('server is running on 8000 port');
+server.listen(8888, () => {
+    console.log('server is running on 8888 port');
 });

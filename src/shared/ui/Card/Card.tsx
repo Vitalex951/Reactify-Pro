@@ -1,6 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { HTMLAttributes, memo } from 'react';
-import { useTranslation } from 'react-i18next';
+import { HTMLAttributes } from 'react';
 import s from './Card.module.scss';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {

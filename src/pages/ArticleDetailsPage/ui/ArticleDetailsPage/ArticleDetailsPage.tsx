@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleDetails } from 'entities/Article';
-import { Route, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment';
@@ -15,6 +15,7 @@ import { AddCommentForm } from 'features/addCommentForm/index';
 import { useCallback } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routerConfig/routerConfig';
+import { Page } from 'shared/ui/Page/Page';
 import {
     addCommentForArticle,
 } from '../../model/services/addCommentForArticle/addCommentForArticle';
@@ -66,17 +67,21 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(s.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(s.ArticleDetailsPage, {}, [className])}>
                 <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
                     {t('article:back')}
                 </Button>
                 <ArticleDetails id={id} />
                 <Text className={s.commentTitle} title={t('article:comments')} />
+                <AddCommentForm
+                    onSendComment={onSendComment}
+                />
                 <CommentList
                     isLoading={commentsIsLoading}
                     comments={comments}
+
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

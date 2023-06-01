@@ -1,5 +1,9 @@
 {
   "Error": "Error",
+  "article": {
+    "buttonSend": "",
+    "inputAddComment": ""
+  },
   "noPage": "",
   "s": "",
   "О сайте": "",
