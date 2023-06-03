@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect } from 'react';
+import { MutableRefObject, useEffect, useRef } from 'react';
 
 export interface UseInfiniteScrollOptions {
     callback?: () => void
@@ -13,8 +13,9 @@ export const useInfiniteScroll = (props: UseInfiniteScrollOptions) => {
         callback,
     } = props;
 
+    const observer = useRef<IntersectionObserver | null>(null);
+
     useEffect(() => {
-        let observer: IntersectionObserver | null = null;
         if (callback && wrapperRef.current) {
             const options = {
                 root: wrapperRef.current,
@@ -22,19 +23,18 @@ export const useInfiniteScroll = (props: UseInfiniteScrollOptions) => {
                 threshold: 1.0,
             };
 
-            observer = new IntersectionObserver(([entry]) => {
+            observer.current = new IntersectionObserver(([entry]) => {
                 if (entry.isIntersecting) {
                     callback();
                 }
             }, options);
-
-            observer.observe(triggerRef.current);
+            observer.current.observe(triggerRef.current);
         }
 
         return () => {
-            if (observer) {
+            if (observer.current && triggerRef.current) {
                 // eslint-disable-next-line react-hooks/exhaustive-deps
-                observer.unobserve(triggerRef.current);
+                observer.current.unobserve(triggerRef.current);
             }
         };
     }, [callback, triggerRef, wrapperRef]);
