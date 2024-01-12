@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ArticleList } from './ArticleList';
-import { Article, ArticleBlockType } from '../../model/types/article';
+import { Article, ArticleBlockType, ArticleType } from '../../model/types/article';
 
 export default {
     title: 'entities/article/ArticleList',
@@ -40,7 +40,7 @@ const article: Article = {
         userName: 'Vitalex',
     },
     type: [
-        'IT',
+        ArticleType.IT,
     ],
     blocks: [
         {

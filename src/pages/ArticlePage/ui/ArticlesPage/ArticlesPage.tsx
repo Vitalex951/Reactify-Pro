@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
+import { ArticleList } from 'entities/Article';
 import {
     DynamicModuleLoader,
     ReducerList,
@@ -10,6 +10,8 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { Page } from 'widgets/Page/Page';
+import { ArticlesPageFilters } from 'pages/ArticlePage/ui/ArticlesPageFilters/ArticlesPageFilters';
+import { useSearchParams } from 'react-router-dom';
 import {
     fetchNextArticlesPage,
 } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
@@ -19,11 +21,7 @@ import {
     getArticlesPageIsLoading,
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
-import {
-    articlesPageActions,
-    articlesPageReducer,
-    getArticles,
-} from '../../model/slices/articlesPageSlice';
+import { articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';
 import s from './ArticlesPage.module.scss';
 
 interface ArticlePageProps {
@@ -35,23 +33,20 @@ const reducers: ReducerList = {
 };
 
 const ArticlesPage = ({ className }: ArticlePageProps) => {
+    const [searchParams] = useSearchParams();
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticles.selectAll);
-    const view = useSelector(getArticlesPageView);
     const error = useSelector(getArticlesPageIsError);
     const isLoading = useSelector(getArticlesPageIsLoading);
+    const view = useSelector(getArticlesPageView);
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
-
-    const onChangeView = useCallback((view: ArticleView) => {
-        dispatch(articlesPageActions.setView(view));
-    }, [dispatch]);
 
     if (error) {
         return <div>{error}</div>;
@@ -63,11 +58,12 @@ const ArticlesPage = ({ className }: ArticlePageProps) => {
                 onScrollEnd={onLoadNextPart}
                 className={classNames(s.ArticlePage, {}, [className])}
             >
-                <ArticleViewSelector view={view} onViewClick={onChangeView} />
+                <ArticlesPageFilters />
                 <ArticleList
                     view={view}
                     isLoading={isLoading}
                     articles={articles}
+                    className={s.list}
                 />
             </Page>
         </DynamicModuleLoader>

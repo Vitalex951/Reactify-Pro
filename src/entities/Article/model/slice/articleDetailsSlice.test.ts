@@ -1,4 +1,4 @@
-import { Article, ArticleDetailsSchema } from 'entities/Article';
+import { Article, ArticleDetailsSchema, ArticleType } from 'entities/Article';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
 import { ArticleBlockType } from 'entities/Article/model/types/article';
 import { updateProfileData } from 'entities/Profile';
@@ -15,7 +15,7 @@ const data: Article = {
     views: 1022,
     createdAt: '26.02.2022',
     type: [
-        'IT',
+        ArticleType.IT,
     ],
     blocks: [
         {

@@ -1,15 +1,27 @@
 {
+  "all": "",
   "article": {
     "buttonSend": "",
     "inputAddComment": ""
   },
+  "article-not": "",
+  "asc": "",
   "back": "",
   "buttonSend": "",
   "comments": "",
   "copy": "",
+  "created": "",
+  "desc": "",
+  "economics": "",
   "inputAddComment": "",
+  "it": "",
   "loading": "",
   "noArticle": "",
   "noComments": "",
+  "science": "",
+  "sort": "",
+  "title": "",
+  "to": "",
+  "views": "",
   "write": ""
 }

@@ -6,6 +6,8 @@ import { Reducer } from '@reduxjs/toolkit';
 
 export type ReducerList = {
     [name in StateSchemaKey]?: Reducer
+// [name in StateSchemaKey]?: Reducer<NonNullable<StateSchemaKey[name]>>
+
 }
 
 interface DynamicModuleLoaderProps {

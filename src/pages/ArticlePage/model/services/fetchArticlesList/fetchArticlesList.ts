@@ -1,38 +1,57 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { Article } from 'entities/Article';
-import { getArticlesPageLimit } from 'pages/ArticlePage/model/selectors/articlesPageSelectors';
+import { Article, ArticleType } from 'entities/Article';
+import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
+import {
+    getArticlesPageLimit,
+    getArticlesPageOrder,
+    getArticlesPagePage,
+    getArticlesPageSearch,
+    getArticlesPageSort,
+    getArticlesPageType,
+} from '../../selectors/articlesPageSelectors';
 
-interface fetchArticlesListProps {
-    page?: number
+interface FetchArticlesListProps {
+    replace?: boolean
 }
 
 export const fetchArticlesList = createAsyncThunk<
     Article[],
-    fetchArticlesListProps,
+    FetchArticlesListProps,
     ThunkConfig<string>
-    >(
-        'articlesPage/fetchArticlesList',
-        async (props, thunkApi) => {
-            const { extra, rejectWithValue, getState } = thunkApi;
-            const { page = 1 } = props;
-            const limit = getArticlesPageLimit(getState());
-            try {
-                const response = await extra.api.get<Article[]>('/articles', {
-                    params: {
-                        _expand: 'user',
-                        _page: page,
-                        _limit: limit,
-                    },
-                });
+>(
+    'articlesPage/fetchArticlesList',
+    async (props, thunkApi) => {
+        const { extra, rejectWithValue, getState } = thunkApi;
+        const limit = getArticlesPageLimit(getState());
+        const sort = getArticlesPageSort(getState());
+        const order = getArticlesPageOrder(getState());
+        const search = getArticlesPageSearch(getState());
+        const page = getArticlesPagePage(getState());
+        const type = getArticlesPageType(getState());
+        try {
+            addQueryParams({
+                sort, order, search, type,
+            });
+            const response = await extra.api.get<Article[]>('/articles', {
+                params: {
+                    _expand: 'user',
+                    _page: page,
+                    _limit: limit,
+                    _sort: sort,
+                    _order: order,
+                    q: search,
+                    type: type === ArticleType.ALL ? undefined : type,
+                },
+            });
 
-                if (!response.data) {
-                    throw new Error();
-                }
-
-                return response.data;
-            } catch (e) {
-                return rejectWithValue('error');
+            if (!response.data) {
+                throw new Error();
             }
-        },
-    );
+
+            return response.data;
+        } catch (e) {
+            return rejectWithValue('error');
+        }
+    },
+);

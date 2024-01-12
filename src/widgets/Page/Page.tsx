@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    MutableRefObject, ReactNode, useRef, UIEvent,
+    MutableRefObject, ReactNode, useRef, UIEvent, useLayoutEffect,
 } from 'react';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -38,7 +38,7 @@ export const Page = (props: PageProps) => {
         callback: onScrollEnd,
     });
 
-    useInitialEffect(() => {
+    useLayoutEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;
     });
 
@@ -56,7 +56,10 @@ export const Page = (props: PageProps) => {
             onScroll={onScroll}
         >
             {children}
-            <div style={{ height: 20, backgroundColor: 'red' }} ref={triggerRef}></div>
+
+            {onScrollEnd
+                ? <div className={s.trigger} ref={triggerRef}></div>
+                : null}
         </section>
     );
 };

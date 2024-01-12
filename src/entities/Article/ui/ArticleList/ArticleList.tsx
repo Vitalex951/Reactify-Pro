@@ -1,7 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
+import { Text } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Article, ArticleView } from '../../model/types/article';
 import s from './ArticleList.module.scss';
@@ -11,6 +12,7 @@ interface ArticleListProps {
     articles: Article[]
     isLoading?: boolean
     view?: ArticleView
+    target?: HTMLAttributeAnchorTarget
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -30,9 +32,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
         articles,
         view = 'SMALL',
         isLoading = false,
+        target,
     } = props;
 
-    const { t } = useTranslation('');
+    const { t } = useTranslation('article');
 
     const renderArticle = (article: Article) => {
         return (
@@ -40,9 +43,21 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 key={article.id}
                 article={article}
                 view={view}
+                target={target}
             />
         );
     };
+
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={classNames(s.ArticleList, {}, [className, s[view]])}>
+                <Text
+                    size="L"
+                    title={t('article:article-not')}
+                />
+            </div>
+        );
+    }
     return (
         <div className={classNames(s.ArticleList, {}, [className, s[view]])}>
             {articles.length > 0

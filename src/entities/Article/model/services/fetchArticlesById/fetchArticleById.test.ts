@@ -1,6 +1,6 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Article } from 'entities/Article';
-import { ArticleBlockType } from 'entities/Article/model/types/article';
+import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 import { fetchArticleById } from 'entities/Article/model/services/fetchArticlesById/fetchArticleById';
 
 const data: Article = {
@@ -18,7 +18,7 @@ const data: Article = {
         id: '1',
         userName: 'Vitalex',
     },
-    type: ['IT'],
+    type: [ArticleType.IT],
     img: '1234',
     views: 1,
     subtitle: 'test',

@@ -1,5 +1,6 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
+import { ArticleType } from 'entities/Article/model/types/article';
 import {
     getArticleDetailsData,
     getArticleDetailsError,
@@ -12,7 +13,7 @@ describe('getArticleDetailsData.test', () => {
             blocks: [],
             img: '123',
             createdAt: 'test',
-            type: ['IT'],
+            type: [ArticleType.IT],
             title: 'Test',
             user: {
                 id: '1',
