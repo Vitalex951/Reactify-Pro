@@ -619,19 +619,25 @@
       "userId": "1",
       "text": "python!!!",
       "id": "p5rMadd"
+    },
+    {
+      "articleId": "17",
+      "userId": "1",
+      "text": "hi",
+      "id": "UxWgdo7"
     }
   ],
   "users": [
     {
       "id": "1",
-      "username": "admin",
+      "userName": "admin",
       "password": "123",
       "role": "ADMIN",
       "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Jakob_Philipp_Hackert_by_Augusto_Nicodemo_1797.jpg/800px-Jakob_Philipp_Hackert_by_Augusto_Nicodemo_1797.jpg"
     },
     {
       "id": "2",
-      "username": "user",
+      "userName": "user",
       "password": "123",
       "role": "USER",
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"

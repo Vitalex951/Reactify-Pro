@@ -20,16 +20,15 @@ server.use(async (req, res, next) => {
 // Эндпоинт для логина
 server.post('/login', (req, res) => {
     try {
-        const { username, password } = req.body;
+        const { userName, password } = req.body;
         const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
         const { users = [] } = db;
         const userFromBd = users.find(
             (user) => {
-                console.log('user,', user);
-                return user.userName === username && user.password === password;
+                return user.userName === userName && user.password === password;
             },
         );
-
+        console.log('userFromBd', userFromBd);
         if (userFromBd) {
             return res.json(userFromBd);
         }

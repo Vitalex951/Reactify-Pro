@@ -4,7 +4,8 @@ import s from './Text.module.scss';
 
 export enum TextTheme {
     PRIMARY = 'primary',
-    ERROR = 'error'
+    ERROR = 'error',
+    INVERTED = 'inverted'
 }
 
 export type TextAlign = 'right' | 'left' | 'center'

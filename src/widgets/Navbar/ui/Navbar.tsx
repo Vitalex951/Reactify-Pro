@@ -5,6 +5,9 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUserName';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import s from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -12,7 +15,7 @@ interface NavbarProps {
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
-    const { t } = useTranslation('navbar');
+    const { t } = useTranslation(['navbar', 'article']);
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
     const dispatch = useDispatch();
@@ -32,6 +35,18 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <header className={classNames(s.Navbar, {}, [className])}>
+                <Text
+                    className={s.appName}
+                    title={t('Vitalex')}
+                    theme={TextTheme.INVERTED}
+                />
+                <AppLink
+                    theme={AppLinkTheme.SECONDARY}
+                    to={RoutePath.articles_create}
+                    className={s.createBtn}
+                >
+                    {t('article:createArticle')}
+                </AppLink>
                 <Button
                     theme={ButtonTheme.CLEAR_INVERTED}
                     className={s.links}
