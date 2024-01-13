@@ -24,9 +24,17 @@ export function buildLoader(options: BuildOptions): webpack.RuleSetRule[] {
     const cssLoader = buildCssLoader(isDev);
 
     const typescriptLoader = {
+        // ts-loader умеет работать с JSX
+        // Если б мы не использовали тайпскрипт: нужен был бы babel-loader
         test: /\.tsx?$/,
-        use: 'ts-loader',
         exclude: /node_modules/,
+        loader: 'ts-loader',
+        options: {
+            transpileOnly: isDev,
+            // getCustomTransformers: () => ({
+            //     before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
+            // }),
+        },
     };
 
     return [

@@ -135,3 +135,9 @@ npm i concurrently -D
 
 Чтобы использовать в css kebab-case, в cssLoader, в options -> modules можно добавить exportLocalsConvention:
 'camelCase'. Вдруг кому полезно будет
+
+47
+npm i -D copy-webpack-plugin@10.2.4
+
+Добавил новый плагин
+npm install --save-dev  fork-ts-checker-webpack-plugin@9.0.0
