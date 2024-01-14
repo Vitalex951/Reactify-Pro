@@ -29,12 +29,12 @@ export function buildLoader(options: BuildOptions): webpack.RuleSetRule[] {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         loader: 'ts-loader',
-        options: {
-            transpileOnly: isDev,
-            // getCustomTransformers: () => ({
-            //     before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
-            // }),
-        },
+        // options: {
+        //     transpileOnly: isDev,
+        //     // getCustomTransformers: () => ({
+        //     //     before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
+        //     // }),
+        // },
     };
 
     return [

@@ -57,7 +57,7 @@ export function buildPlugins({
         plugins.push(
             new webpack.HotModuleReplacementPlugin(),
         );
-        plugins.push(new ForkTsCheckerWebpackPlugin());
+        // plugins.push(new ForkTsCheckerWebpackPlugin());
     }
     return plugins;
 }
