@@ -7,7 +7,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 
 import { CountrySelect, Currency, CurrencySelect } from 'entities/Currency';
 import { Country } from 'entities/Currency/model/types/Country';
-import { Profile } from '../../model/types/Profile';
+import { Profile } from '../../model/types/profile';
 import s from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
