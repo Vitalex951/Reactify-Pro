@@ -1,12 +1,11 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    MutableRefObject, ReactNode, useRef, UIEvent, useLayoutEffect,
+    MutableRefObject, ReactNode, UIEvent, useLayoutEffect, useRef,
 } from 'react';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getScrollSaveByPath, scrollSaveActions } from 'features/ScrollSave';
 import { useLocation } from 'react-router-dom';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
@@ -17,6 +16,8 @@ interface PageProps {
     children?: ReactNode
     onScrollEnd?: () => void
 }
+
+export const PAGE_ID = 'PAGE_ID';
 
 export const Page = (props: PageProps) => {
     const {
@@ -54,6 +55,7 @@ export const Page = (props: PageProps) => {
             ref={wrapperRef}
             className={classNames(s.Page, {}, [className])}
             onScroll={onScroll}
+            id={PAGE_ID}
         >
             {children}
 

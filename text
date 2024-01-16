@@ -141,3 +141,8 @@ npm i -D copy-webpack-plugin@10.2.4
 
 Добавил новый плагин
 npm install --save-dev  fork-ts-checker-webpack-plugin@9.0.0
+
+
+48
+npm install react-virtualized
+npm install -D @types/react-virtualized
