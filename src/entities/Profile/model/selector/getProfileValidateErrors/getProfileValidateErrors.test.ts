@@ -1,7 +1,7 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Country, Currency } from 'entities/Currency';
-import { ValidateProfileError } from 'entities/Profile/model/types/profile';
-import { getProfileValidateErrors } from 'entities/Profile';
+import { ValidateProfileError } from '../../types/profile';
+import { getProfileValidateErrors } from './getProfileValidateErrors';
 
 describe('getProfileData.test', () => {
     test('should return validateErrors', () => {

@@ -1,4 +1,4 @@
-import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard';
+import { ProfileCard } from './ui/ProfileCard/ProfileCard';
 import { getProfileError } from './model/selector/getProfileError/getProfileError';
 import {
     getProfileIsLoading,

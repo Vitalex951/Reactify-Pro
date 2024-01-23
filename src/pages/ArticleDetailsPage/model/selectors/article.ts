@@ -9,8 +9,6 @@ export const getCanEditArticle = createSelector(
         if (!article || !user) {
             return false;
         }
-        console.log('article.user.id', article.user.id);
-        console.log('article.user.id', user.id);
         return article.user.id === user.id;
     },
 );

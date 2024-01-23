@@ -1,7 +1,7 @@
-import { Article, ArticleDetailsSchema, ArticleType } from 'entities/Article';
-import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
-import { ArticleBlockType } from 'entities/Article/model/types/article';
-import { updateProfileData } from 'entities/Profile';
+import { Article, ArticleDetailsSchema, ArticleType } from '../../../Article';
+import { articleDetailsReducer } from './articleDetailsSlice';
+import { ArticleBlockType } from '../types/article';
+import { updateProfileData } from '../../../Profile/model/services/updateProfileData/updateProfileData';
 
 const data: Article = {
     id: '1',

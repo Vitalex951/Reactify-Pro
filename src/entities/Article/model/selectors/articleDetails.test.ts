@@ -1,6 +1,6 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Article } from 'entities/Article';
-import { ArticleType } from 'entities/Article/model/types/article';
+import { Article, ArticleType } from '../types/article';
+
 import {
     getArticleDetailsData,
     getArticleDetailsError,

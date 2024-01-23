@@ -1,4 +1,4 @@
-import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
+import { ArticleList } from './ui/ArticleList/ArticleList';
 import {
     Article, ArticleView, ArticleSortField, ArticleType,
 } from './model/types/article';

@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
-import { IComment } from 'entities/Comment/model/types/comment';
+import { IComment } from '../../model/types/comment';
 import { CommentCard } from '../CommentCard/CommentCard';
 import s from './CommentList.module.scss';
 

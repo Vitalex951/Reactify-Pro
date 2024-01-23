@@ -12,7 +12,7 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     loginByUserName,
-} from 'features/AuthByUserName/model/service/loginByUserName/loginByUserName';
+} from '../../model/service/loginByUserName/loginByUserName';
 import { getLoginUserName } from '../../model/selectors/getLoginUserName/getLoginUserName';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
