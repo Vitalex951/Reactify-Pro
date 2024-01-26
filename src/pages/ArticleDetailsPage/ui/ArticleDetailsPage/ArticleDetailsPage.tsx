@@ -14,6 +14,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/addCommentForm/index';
 import { useCallback } from 'react';
 import { Page } from 'widgets/Page/Page';
+import { VStack } from 'shared/ui/Stack';
 import {
     ArticleDetailsPageHeader,
 } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
@@ -49,7 +50,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const recommendations = useSelector(getArticleRecommendations.selectAll);
     const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-    const onSendComment = useCallback((text:string) => {
+    const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));
     }, [dispatch]);
 
@@ -69,24 +70,26 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(s.ArticleDetailsPage, {}, [className])}>
-                <ArticleDetailsPageHeader />
-                <ArticleDetails id={id} />
-                <Text size="L" className={s.commentTitle} title={t('article:recommendations')} />
-                <ArticleList
-                    articles={recommendations}
-                    isLoading={recommendationsIsLoading}
-                    className={s.recommendations}
-                    target="_blank"
-                />
-                <Text size="L" className={s.commentTitle} title={t('article:comments')} />
-                <AddCommentForm
-                    onSendComment={onSendComment}
-                />
-                <CommentList
-                    isLoading={commentsIsLoading}
-                    comments={comments}
+                <VStack gap="16">
+                    <ArticleDetailsPageHeader />
+                    <ArticleDetails id={id} />
+                    <Text size="L" title={t('article:recommendations')} />
+                    <ArticleList
+                        articles={recommendations}
+                        isLoading={recommendationsIsLoading}
+                        className={s.recommendations}
+                        target="_blank"
+                    />
+                    <Text size="L" title={t('article:comments')} />
+                    <AddCommentForm
+                        onSendComment={onSendComment}
+                    />
+                    <CommentList
+                        isLoading={commentsIsLoading}
+                        comments={comments}
 
-                />
+                    />
+                </VStack>
             </Page>
         </DynamicModuleLoader>
     );

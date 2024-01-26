@@ -12,7 +12,7 @@ import {
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from 'entities/User';
-import s from './ProfilePageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 interface ProfilePageHeaderProps {
     className?: string
@@ -40,14 +40,17 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
     }, [dispatch]);
 
     return (
-        <div className={classNames(s.ProfilePageHeader, {}, [className])}>
+        <HStack
+            justify="between"
+            max
+            className={classNames('', {}, [className])}
+        >
             <Text text={t('profile:профиль')} />
             {canEdit && (
-                <div className={s.btnsWrapper}>
+                <div>
                     {readonly
                         ? (
                             <Button
-                                className={s.editBtn}
                                 theme={ButtonTheme.OUTLINE}
                                 onClick={onEdit}
                             >
@@ -55,25 +58,23 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
                             </Button>
                         )
                         : (
-                            <>
+                            <HStack gap="8">
                                 <Button
-                                    className={s.editBtn}
                                     theme={ButtonTheme.OUTLINE_RED}
                                     onClick={onCancelEdit}
                                 >
                                     {t('profile:отменить')}
                                 </Button>
                                 <Button
-                                    className={s.saveBtn}
                                     theme={ButtonTheme.OUTLINE}
                                     onClick={onSave}
                                 >
                                     {t('profile:сохранить')}
                                 </Button>
-                            </>
+                            </HStack>
                         )}
                 </div>
             )}
-        </div>
+        </HStack>
     );
 };

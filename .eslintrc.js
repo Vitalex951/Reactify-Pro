@@ -2,12 +2,9 @@ const { ignorePatterns } = require('eslint-config-standard-with-typescript');
 
 module.exports = {
     env: {
-        browser: true,
-        es2021: true,
-        jest: true,
+        browser: true, es2021: true, jest: true,
     },
-    extends: [
-        'plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended',
+    extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended',
 
     ],
     parser: '@typescript-eslint/parser',
@@ -18,13 +15,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: [
-        'react',
-        '@typescript-eslint',
-        'i18next',
-        'react-hooks',
-        'fsd-fix-imports',
-    ],
+    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'fsd-fix-imports'],
     rules: {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
@@ -33,8 +24,7 @@ module.exports = {
             extensions: ['.js', '.jsx', '.tsx'],
         }],
         'import/no-unresolved': 'off',
-        'import/prefer-default-export': 'off',
-        // 'no-unused-vars': 'warn',
+        'import/prefer-default-export': 'off', // 'no-unused-vars': 'warn',
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/function-component-definition': 'off',
@@ -53,11 +43,10 @@ module.exports = {
         'no-undef': 'off',
         'i18next/no-literal-string': ['error', {
             markupOnly: true,
-            ignoreAttribute: ['data-testid', 'to', 'align', 'alt', 'target'],
+            ignoreAttribute: ['data-testid', 'to', 'align', 'alt', 'target', 'justify', 'align', 'direction', 'gap'],
         }],
         'max-len': ['error', {
-            code: 125,
-            ignoreComments: true,
+            code: 125, ignoreComments: true,
         }],
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
@@ -69,16 +58,12 @@ module.exports = {
         'fsd-fix-imports/path-checker': 'error',
     },
     globals: {
-        __IS_DEV__: true,
-        __API__: true,
-        __PROJECT__: true,
-    },
-    // позволяет для определенного типа файлов переопределить какие-то правила
+        __IS_DEV__: true, __API__: true, __PROJECT__: true,
+    }, // позволяет для определенного типа файлов переопределить какие-то правила
     overrides: [{
         files: ['**/src/**/*{test,stories}.{ts,tsx}'],
         rules: {
-            'i18next/no-literal-string': 'off',
-            'max-len': 'off',
+            'i18next/no-literal-string': 'off', 'max-len': 'off',
         },
     }],
 };
