@@ -43,7 +43,9 @@ module.exports = {
         'no-undef': 'off',
         'i18next/no-literal-string': ['error', {
             markupOnly: true,
-            ignoreAttribute: ['data-testid', 'to', 'align', 'alt', 'target', 'justify', 'align', 'direction', 'gap'],
+            ignoreAttribute: [
+                'data-testid', 'to', 'align', 'alt', 'target', 'justify', 'align', 'direction', 'gap', 'role', 'as',
+            ],
         }],
         'max-len': ['error', {
             code: 125, ignoreComments: true,

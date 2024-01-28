@@ -48,6 +48,16 @@
     }
 }
 
+.sizeS {
+    .title {
+        font: var(--font-m);
+    }
+
+    .text {
+        font: var(--font-s);
+    }
+}
+
 .sizeL {
     .title {
         font: var(--font-xl);
