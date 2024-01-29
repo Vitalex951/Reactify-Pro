@@ -38,7 +38,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
             label={t('profile:валюта-select')}
             items={options}
             onChange={onChangeHandler}
-            direction="top"
+            direction="top right"
         />
     );
 });

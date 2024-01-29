@@ -41,7 +41,7 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
             label={t('profile:город-select')}
             items={options}
             onChange={onChangeHandler}
-            direction="top"
+            direction="top right"
         />
     );
 });

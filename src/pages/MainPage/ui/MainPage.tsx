@@ -18,7 +18,7 @@ const MainPage = () => {
             <BugButton />
             {t('main:Главная страница')}
             {/* eslint-disable-next-line i18next/no-literal-string */}
-            <Input autoFocus placeholder="Введите текст" onChange={onChange} value={value} />
+            <Input autoFocus placeholder={t('main:enterText')} onChange={onChange} value={value} />
         </Page>
     );
 };
