@@ -1,7 +1,7 @@
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Country, Currency } from 'entities/Currency';
-import { ValidateProfileError } from '../../types/profile';
+import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { updateProfileData } from './updateProfileData';
+import { ValidateProfileError } from '../../types/editableProfileCardSchema';
 
 const data = {
     age: 22,

@@ -1,7 +1,7 @@
+import { updateProfileData } from 'features/EditableProfileCard/model/services/updateProfileData/updateProfileData';
 import { Article, ArticleDetailsSchema, ArticleType } from '../../../Article';
 import { articleDetailsReducer } from './articleDetailsSlice';
 import { ArticleBlockType } from '../types/article';
-import { updateProfileData } from '../../../Profile/model/services/updateProfileData/updateProfileData';
 
 const data: Article = {
     id: '1',

@@ -8,22 +8,20 @@ import {
     Reducer,
     ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
-import {
-    ArticleDetailsCommentsSchema,
-} from 'pages/ArticleDetailsPage/model/types/ArticleDetailsCommentsSchema';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlePage/model/types/articlesPageSchema';
 import { ScrollSaveSchema } from 'features/ScrollSave';
-import { ArticleDetailsRecommendationsSchema } from 'pages/ArticleDetailsPage';
 import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage/model/types';
+import { rtkApi } from 'shared/api/rtkApi';
+import { ProfileSchema } from 'features/EditableProfileCard';
 
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema,
     scrollSave: ScrollSaveSchema
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
     // Асинхронные редюсеры
     loginForm?: LoginSchema
