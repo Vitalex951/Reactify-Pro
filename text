@@ -146,3 +146,13 @@ npm install --save-dev  fork-ts-checker-webpack-plugin@9.0.0
 48
 npm install react-virtualized
 npm install -D @types/react-virtualized
+
+
+70
+npm i whatwg-fetch  --save-dev
+
+71
+ npm install jest-html-reporters --save-dev
+
+72
+npm install --save-dev @testing-library/user-event
