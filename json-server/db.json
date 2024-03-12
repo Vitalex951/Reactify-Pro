@@ -638,15 +638,22 @@
       "id": "1",
       "userName": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Jakob_Philipp_Hackert_by_Augusto_Nicodemo_1797.jpg/800px-Jakob_Philipp_Hackert_by_Augusto_Nicodemo_1797.jpg"
     },
     {
       "id": "2",
       "userName": "user",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "id": "3",
+      "userName": "manager",
+      "password": "123",
+      "roles": ["MANAGER"],
+      "avatar": "https://w.forfun.com/fetch/fd/fd5dd4e04b5a65807bac5c49ddd4c241.jpeg"
     }
   ],
   "profile": [
