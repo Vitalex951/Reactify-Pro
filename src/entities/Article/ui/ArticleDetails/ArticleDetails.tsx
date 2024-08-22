@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import {
     DynamicModuleLoader,
-    ReducerList,
+    ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { memo, useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -30,7 +30,7 @@ import { fetchArticleById } from '../../model/services/fetchArticlesById/fetchAr
 import s from './ArticleDetails.module.scss';
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 
-const reducers: ReducerList = {
+const reducers: ReducersList = {
     articleDetails: articleDetailsReducer,
 };
 

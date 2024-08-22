@@ -2,7 +2,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
-    ReducerList,
+    ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -22,7 +22,7 @@ interface ArticlePageProps {
     className?: string
 }
 
-const reducers: ReducerList = {
+const reducers: ReducersList = {
     articlesPage: articlesPageReducer,
 };
 

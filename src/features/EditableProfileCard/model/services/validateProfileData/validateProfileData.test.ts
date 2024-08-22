@@ -1,18 +1,19 @@
-import { Country, Currency } from 'entities/Currency';
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Counter';
 import { ValidateProfileError } from '../../types/editableProfileCardSchema';
 import { validateProfileData } from './validateProfileData';
 
 const data = {
+    username: 'admin',
     age: 22,
-    country: Country.Belarus,
-    first: 'vit',
-    lastname: 'alex',
-    username: 'vitalex',
-    currency: Currency.RUB,
-    city: 'Minsk',
+    country: Country.Ukraine,
+    lastname: 'ulbi tv',
+    first: 'asd',
+    city: 'asf',
+    currency: Currency.USD,
 };
 
-describe('fetchProfileData.test', () => {
+describe('validateProfileData.test', () => {
     test('success', async () => {
         const result = validateProfileData(data);
 

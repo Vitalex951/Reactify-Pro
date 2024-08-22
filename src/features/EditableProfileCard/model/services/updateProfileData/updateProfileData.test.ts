@@ -1,5 +1,6 @@
-import { Country, Currency } from 'entities/Currency';
+import { Currency } from 'entities/Currency';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { Country } from 'entities/Counter';
 import { updateProfileData } from './updateProfileData';
 import { ValidateProfileError } from '../../types/editableProfileCardSchema';
 

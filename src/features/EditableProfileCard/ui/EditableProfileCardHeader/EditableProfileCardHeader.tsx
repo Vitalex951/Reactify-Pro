@@ -1,29 +1,36 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/User';
+
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { HStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { getProfileData, getProfileReadonly, profileActions } from '../../index';
+import { getUserAuthData } from 'entities/User';
+import { profileActions } from '../../model/slice/profileSlice';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import {
-    updateProfileData,
-} from '../../model/services/updateProfileData/updateProfileData';
+    getProfileData,
+} from '../../model/selector/getProfileData/getProfileData';
+import {
+    getProfileReadonly,
+} from '../../model/selector/getProfileReadonly/getProfileReadonly';
 
 interface EditableProfileCardHeaderProps {
-    className?: string
+    className?: string;
 }
 
 export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderProps) => {
-    const { t } = useTranslation(['profile']);
-    const { className } = props;
+    const {
+        className,
+    } = props;
 
-    const readonly = useSelector(getProfileReadonly);
+    const { t } = useTranslation('profile');
     const authData = useSelector(getUserAuthData);
     const profileData = useSelector(getProfileData);
     const canEdit = authData?.id === profileData?.id;
+    const readonly = useSelector(getProfileReadonly);
     const dispatch = useAppDispatch();
 
     const onEdit = useCallback(() => {
@@ -39,22 +46,18 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
     }, [dispatch]);
 
     return (
-        <HStack
-            justify="between"
-            max
-            className={classNames('', {}, [className])}
-        >
-            <Text text={t('profile:профиль')} />
-            {canEdit && (
+        <HStack max justify="between" className={classNames('', {}, [className])}>
+            <Text title={t('Профиль')} />
+            { canEdit && (
                 <div>
-                    {readonly
+                    { readonly
                         ? (
                             <Button
                                 theme={ButtonTheme.OUTLINE}
                                 onClick={onEdit}
                                 data-testid="EditableProfileCardHeader.EditButton"
                             >
-                                {t('profile:редактировать')}
+                                { t('Редактировать') }
                             </Button>
                         )
                         : (
@@ -64,19 +67,19 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
                                     onClick={onCancelEdit}
                                     data-testid="EditableProfileCardHeader.CancelButton"
                                 >
-                                    {t('profile:отменить')}
+                                    { t('Отменить') }
                                 </Button>
                                 <Button
                                     theme={ButtonTheme.OUTLINE}
                                     onClick={onSave}
                                     data-testid="EditableProfileCardHeader.SaveButton"
                                 >
-                                    {t('profile:сохранить')}
+                                    { t('Сохранить') }
                                 </Button>
                             </HStack>
-                        )}
+                        ) }
                 </div>
-            )}
+            ) }
         </HStack>
     );
 });

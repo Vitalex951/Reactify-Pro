@@ -1,6 +1,9 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Country, Currency } from 'entities/Currency';
-import { ValidateProfileError } from '../../types/editableProfileCardSchema';
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Counter';
+import {
+    ValidateProfileError,
+} from '../../types/editableProfileCardSchema';
 import { getProfileValidateErrors } from './getProfileValidateErrors';
 
 describe('getProfileData.test', () => {

@@ -3,8 +3,9 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Country, Currency } from 'entities/Currency';
+import { Currency } from 'entities/Currency';
 import avatar from 'shared/assets/test/avatar.jpg';
+import { Country } from 'entities/Counter';
 import ProfilePage from './ProfilePage';
 
 export default {

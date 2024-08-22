@@ -6,7 +6,7 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 
 import { CountrySelect, Currency, CurrencySelect } from 'entities/Currency';
-import { Country } from 'entities/Currency/model/types/Country';
+import { Country } from 'entities/Counter/model/types/Country';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { Profile } from '../../model/types/profile';
 import s from './ProfileCard.module.scss';

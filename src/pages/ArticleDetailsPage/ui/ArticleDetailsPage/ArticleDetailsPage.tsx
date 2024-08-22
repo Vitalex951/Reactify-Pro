@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
     DynamicModuleLoader,
-    ReducerList,
+    ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from 'widgets/Page/Page';
 import { VStack } from 'shared/ui/Stack';
@@ -20,7 +20,7 @@ interface ArticleDetailsPageProps {
     className?: string
 }
 
-const reducers: ReducerList = {
+const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
 };
 
