@@ -156,3 +156,9 @@ npm i whatwg-fetch  --save-dev
 
 72
 npm install --save-dev @testing-library/user-event
+
+73 npm i react@18.2.0 react-dom@18.2.0
+
+74 npm i --save-dev @storybook-addon-mock@2.4.1
+
+

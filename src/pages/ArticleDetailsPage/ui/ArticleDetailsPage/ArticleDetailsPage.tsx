@@ -1,7 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -9,9 +8,7 @@ import {
 import { Page } from 'widgets/Page/Page';
 import { VStack } from 'shared/ui/Stack';
 import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
-import {
-    ArticleDetailsComments,
-} from '../ArticleDetailsComments/ArticleDetailsComments';
+import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { articleDetailsPageReducer } from '../../model/slices';
 import s from './ArticleDetailsPage.module.scss';
@@ -26,15 +23,6 @@ const reducers: ReducersList = {
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const { id } = useParams<{ id: string }>();
-    const { t } = useTranslation('article');
-
-    if (!id) {
-        return (
-            <div className={classNames(s.ArticleDetailsPage, {}, [className])}>
-                {t('article:noArticle')}
-            </div>
-        );
-    }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>

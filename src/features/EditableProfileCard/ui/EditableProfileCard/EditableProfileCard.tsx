@@ -16,18 +16,10 @@ import { Country } from 'entities/Counter';
 import {
     getProfileValidateErrors,
 } from '../../model/selector/getProfileValidateErrors/getProfileValidateErrors';
-import {
-    getProfileReadonly,
-} from '../../model/selector/getProfileReadonly/getProfileReadonly';
-import {
-    getProfileError,
-} from '../../model/selector/getProfileError/getProfileError';
-import {
-    getProfileIsLoading,
-} from '../../model/selector/getProfileIsLoading/getProfileIsLoading';
-import {
-    getProfileForm,
-} from '../../model/selector/getProfileForm/getProfileForm';
+import { getProfileReadonly } from '../../model/selector/getProfileReadonly/getProfileReadonly';
+import { getProfileError } from '../../model/selector/getProfileError/getProfileError';
+import { getProfileIsLoading } from '../../model/selector/getProfileIsLoading/getProfileIsLoading';
+import { getProfileForm } from '../../model/selector/getProfileForm/getProfileForm';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { ValidateProfileError } from '../../model/types/editableProfileCardSchema';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
@@ -35,7 +27,7 @@ import { fetchProfileData } from '../../model/services/fetchProfileData/fetchPro
 
 interface EditableProfileCardProps {
     className?: string;
-    id: string;
+    id?: string;
 }
 
 const reducers: ReducersList = {
